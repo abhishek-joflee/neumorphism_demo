@@ -33,8 +33,9 @@ class MyHomePage extends StatelessWidget {
           width: 300,
           height: 300,
           decoration: BoxDecoration(
+            shape: BoxShape.circle,
             color: Colors.grey[300],
-            borderRadius: BorderRadius.circular(20.0),
+            // borderRadius: BorderRadius.circular(20.0),
             boxShadow: [
               // bottom right
               BoxShadow(
@@ -48,7 +49,7 @@ class MyHomePage extends StatelessWidget {
               const BoxShadow(
                 color: Colors.white,
                 offset: Offset(-5, -5),
-                blurRadius: 15,
+                blurRadius: 13,
                 spreadRadius: 1,
               ),
             ],
