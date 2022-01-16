@@ -53,6 +53,22 @@ class MyHomePage extends StatelessWidget {
                 spreadRadius: 1,
               ),
             ],
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                Colors.grey.shade200,
+                Colors.grey.shade300,
+                Colors.grey.shade400,
+                Colors.grey.shade500,
+              ],
+              stops: const [
+                0.1,
+                0.3,
+                0.8,
+                0.9,
+              ],
+            ),
           ),
         ),
       ),
