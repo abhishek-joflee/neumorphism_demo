@@ -29,51 +29,55 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey[300],
       body: Center(
-        child: Material(
-          shape: const CircleBorder(),
-          child: InkWell(
-            onTap: () {},
-            customBorder: const CircleBorder(),
-            child: Container(
-              width: 300,
-              height: 300,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.grey[300],
-                // borderRadius: BorderRadius.circular(20.0),
-                boxShadow: [
-                  // bottom right
-                  BoxShadow(
-                    color: Colors.grey.shade500,
-                    offset: const Offset(5, 5),
-                    blurRadius: 15,
-                    spreadRadius: 1,
-                  ),
+        child: Container(
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: Colors.green,
+            boxShadow: [
+              // bottom right
+              BoxShadow(
+                color: Colors.grey.shade500,
+                offset: const Offset(5, 5),
+                blurRadius: 15,
+                spreadRadius: 1,
+              ),
 
-                  // top left
-                  const BoxShadow(
-                    color: Colors.white,
-                    offset: Offset(-5, -5),
-                    blurRadius: 13,
-                    spreadRadius: 1,
-                  ),
-                ],
-                gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [
-                    Colors.grey.shade200,
-                    Colors.grey.shade300,
-                    Colors.grey.shade400,
-                    Colors.grey.shade500,
-                  ],
-                  stops: const [
-                    0.1,
-                    0.3,
-                    0.8,
-                    0.9,
-                  ],
-                ),
+              // top left
+              const BoxShadow(
+                color: Colors.white,
+                offset: Offset(-5, -5),
+                blurRadius: 13,
+                spreadRadius: 1,
+              ),
+            ],
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                Colors.grey.shade200,
+                Colors.grey.shade300,
+                Colors.grey.shade400,
+                Colors.grey.shade500,
+              ],
+              stops: const [
+                0.1,
+                0.3,
+                0.8,
+                0.9,
+              ],
+            ),
+          ),
+          child: Material(
+            shape: const CircleBorder(),
+            color: Colors.transparent,
+            child: InkWell(
+              onTap: () {},
+              // splashColor: Colors.transparent,
+              hoverColor: Colors.transparent,
+              customBorder: const CircleBorder(),
+              child: const SizedBox(
+                width: 300,
+                height: 300,
               ),
             ),
           ),
