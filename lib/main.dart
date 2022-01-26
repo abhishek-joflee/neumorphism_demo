@@ -50,6 +50,8 @@ class MyHomePage extends StatelessWidget {
                 spreadRadius: 1,
               ),
             ],
+
+            // gradient for 3d effect
             gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
