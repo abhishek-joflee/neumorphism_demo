@@ -44,33 +44,30 @@ class MyButton extends StatefulWidget {
 
 class _MyButtonState extends State<MyButton>
     with SingleTickerProviderStateMixin {
-  bool isElevated = true;
-  bool isAnimating = false;
+  bool _isElevated = true;
+  bool _isAnimating = false;
   late AnimationController _animationController;
 
-  void changeIcon() {
-//rebuilds UI with changing icon.
-    setState(() {
-      isAnimating = !isAnimating;
-      isAnimating
-          ? _animationController.forward()
-          : _animationController.reverse();
-    });
+  void _changeIcon() {
+    _isAnimating = !_isAnimating;
+    _isAnimating
+        ? _animationController.forward()
+        : _animationController.reverse();
   }
 
   @override
   void initState() {
+    super.initState();
     _animationController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 300),
     );
-    super.initState();
   }
 
   @override
   void dispose() {
-    super.dispose();
     _animationController.dispose();
+    super.dispose();
   }
 
   @override
@@ -81,7 +78,7 @@ class _MyButtonState extends State<MyButton>
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         color: Colors.grey[300],
-        boxShadow: isElevated
+        boxShadow: _isElevated
             ? [
                 // bottom right
                 BoxShadow(
@@ -109,19 +106,19 @@ class _MyButtonState extends State<MyButton>
           child: GestureDetector(
             onTapDown: (_) {
               setState(() {
-                isElevated = false;
+                _isElevated = false;
               });
             },
             onTapCancel: () {
               setState(() {
-                isElevated = true;
+                _isElevated = true;
               });
             },
+            // do button tap operation here
             onTapUp: (_) {
-              // do button tap operation here
               setState(() {
-                isElevated = true;
-                changeIcon();
+                _isElevated = true;
+                _changeIcon();
               });
             },
             child: Container(
@@ -130,9 +127,9 @@ class _MyButtonState extends State<MyButton>
               color: Colors.transparent,
               child: Center(
                 child: AnimatedIcon(
-                  size: 100,
+                  size: 200,
                   progress: _animationController,
-                  icon: AnimatedIcons.add_event,
+                  icon: AnimatedIcons.play_pause,
                 ),
               ),
             ),
