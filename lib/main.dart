@@ -14,27 +14,15 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Neumorphism demo'),
+      home: const MyHomePage(title: 'Neumorphism demo'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
+class MyHomePage extends StatelessWidget {
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
 
   final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  late AnimationController _animationController;
-
-  @override
-  void initState() {
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -72,8 +60,10 @@ class _MyButtonState extends State<MyButton>
 
   @override
   void initState() {
-    _animationController =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 300));
+    _animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 300),
+    );
     super.initState();
   }
 
@@ -117,11 +107,6 @@ class _MyButtonState extends State<MyButton>
         child: MouseRegion(
           cursor: SystemMouseCursors.click,
           child: GestureDetector(
-            onTap: () {
-              setState(() {
-                changeIcon();
-              });
-            },
             onTapDown: (_) {
               setState(() {
                 isElevated = false;
@@ -136,6 +121,7 @@ class _MyButtonState extends State<MyButton>
               // do button tap operation here
               setState(() {
                 isElevated = true;
+                changeIcon();
               });
             },
             child: Container(
@@ -146,7 +132,7 @@ class _MyButtonState extends State<MyButton>
                 child: AnimatedIcon(
                   size: 100,
                   progress: _animationController,
-                  icon: AnimatedIcons.arrow_menu,
+                  icon: AnimatedIcons.add_event,
                 ),
               ),
             ),
